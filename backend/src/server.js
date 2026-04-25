@@ -7,7 +7,9 @@ const app = express();
 
 // Middleware
 app.use(cors({
-  origin: ['http://localhost:5173', 'http://localhost:5174', 'http://localhost:5178'],
+  origin: process.env.NODE_ENV === 'production' 
+    ? 'https://kemp-rho.vercel.app'
+    : ['http://localhost:5173', 'http://localhost:5174', 'http://localhost:5178'],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
