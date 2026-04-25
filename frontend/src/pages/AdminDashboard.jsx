@@ -36,7 +36,7 @@ export default function AdminDashboard() {
       setReportsLoading(true);
 
       console.log('Fetching notifications for admin:', adminId);
-      const response = await fetch(`${NOTIFICATION_API_URL}/notifications/user/${adminId}`, {
+      const response = await fetch(getApiUrl(`/notifications/user/${adminId}`), {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -67,7 +67,7 @@ export default function AdminDashboard() {
   const fetchProductRecords = async (token) => {
     try {
       setRecordsLoading(true);
-      const response = await fetch(`${NOTIFICATION_API_URL}/sales/sales-records`, {
+      const response = await fetch(getApiUrl('/sales/sales-records'), {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -167,7 +167,7 @@ export default function AdminDashboard() {
       formData.append("idCard", staffIdCard);
       formData.append("role", "staff");
 
-      const response = await fetch(`${API_URL}/signup`, {
+      const response = await fetch(getApiUrl('/auth/signup'), {
         method: "POST",
         body: formData
       });

@@ -63,7 +63,7 @@ export default function SellingForm() {
         form.append('image', formData.images[0]);
       }
 
-      const response = await fetch(`${API_URL}/create`, {
+      const response = await fetch(getApiUrl('/products/create'), {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('token')}`

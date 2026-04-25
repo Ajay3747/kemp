@@ -24,7 +24,7 @@ export default function Notifications() {
         return;
       }
 
-      const response = await fetch(`${API_URL}/notifications/user/${userId}`, {
+      const response = await fetch(getApiUrl(`/notifications/user/${userId}`), {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -51,7 +51,7 @@ export default function Notifications() {
     try {
       const token = localStorage.getItem('token');
       
-      const response = await fetch(`${API_URL}/notifications/read/${notificationId}`, {
+      const response = await fetch(getApiUrl(`/notifications/read/${notificationId}`), {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -73,7 +73,7 @@ export default function Notifications() {
     try {
       const token = localStorage.getItem('token');
       
-      const response = await fetch(`${API_URL}/notifications/${notificationId}`, {
+      const response = await fetch(getApiUrl(`/notifications/${notificationId}`), {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',

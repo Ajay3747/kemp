@@ -42,7 +42,7 @@ export default function Buying() {
       setLoading(true);
       setError("");
       
-      const response = await fetch(`${API_URL}/all`, {
+      const response = await fetch(getApiUrl('/products/all'), {
         method: "GET",
         headers: {
           "Content-Type": "application/json"

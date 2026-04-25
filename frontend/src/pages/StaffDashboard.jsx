@@ -60,7 +60,7 @@ export default function StaffDashboard() {
       setError("");
 
       // Fetch dashboard data
-      const dashboardResponse = await fetch(`${API_URL}/staff/dashboard/${staffId}`, {
+      const dashboardResponse = await fetch(getApiUrl(`/auth/staff/dashboard/${staffId}`), {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -75,7 +75,7 @@ export default function StaffDashboard() {
       const dashboardData = await dashboardResponse.json();
       
       // Fetch pending users count
-      const pendingResponse = await fetch(`${API_URL}/staff/pending-users`, {
+      const pendingResponse = await fetch(getApiUrl('/auth/staff/pending-users'), {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -108,7 +108,7 @@ export default function StaffDashboard() {
 
   const fetchUsers = async () => {
     try {
-      const response = await fetch(`${API_URL}/admin/users`, {
+      const response = await fetch(getApiUrl('/auth/admin/users'), {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -156,7 +156,7 @@ export default function StaffDashboard() {
 
       // Send report to backend
       console.log('Submitting report:', reportData);
-      const response = await fetch(`${API_URL}/staff/report-user`, {
+      const response = await fetch(getApiUrl('/auth/staff/report-user'), {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

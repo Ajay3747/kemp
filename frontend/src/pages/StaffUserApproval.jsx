@@ -38,7 +38,7 @@ export default function StaffUserApproval() {
         headers["Authorization"] = `Bearer ${token}`;
       }
 
-      const response = await fetch(`${API_URL}/staff/pending-users`, {
+      const response = await fetch(getApiUrl('/auth/staff/pending-users'), {
         method: "GET",
         headers: headers,
         credentials: "include"
@@ -74,7 +74,7 @@ export default function StaffUserApproval() {
 
   const handleApprove = async (userId) => {
     try {
-      const response = await fetch(`${API_URL}/staff/approve/${userId}`, {
+      const response = await fetch(getApiUrl(`/auth/staff/approve/${userId}`), {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -101,7 +101,7 @@ export default function StaffUserApproval() {
     }
 
     try {
-      const response = await fetch(`${API_URL}/staff/deny/${userId}`, {
+      const response = await fetch(getApiUrl(`/auth/staff/deny/${userId}`), {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

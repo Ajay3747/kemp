@@ -51,7 +51,7 @@ export default function LoginPage() {
   const login = async () => {
     setLoading(true);
     try {
-      const response = await fetch(`${API_URL}/login`, {
+      const response = await fetch(getApiUrl('/auth/login'), {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, password, userType: "user" })
@@ -67,7 +67,7 @@ export default function LoginPage() {
         localStorage.setItem("isAdmin", data.isAdmin || false);
 
         try {
-          const userResponse = await fetch(`${API_URL}/user/${data.userId}`, {
+          const userResponse = await fetch(getApiUrl(`/auth/user/${data.userId}`), {
             method: "GET",
             headers: {
               "Content-Type": "application/json",
@@ -138,7 +138,7 @@ export default function LoginPage() {
       formData.append("bloodGroup", bloodGroup);
       formData.append("idCard", idCard);
 
-      const response = await fetch(`${API_URL}/signup`, {
+      const response = await fetch(getApiUrl('/auth/signup'), {
         method: "POST",
         body: formData
       });

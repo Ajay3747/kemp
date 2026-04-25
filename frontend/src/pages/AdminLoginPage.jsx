@@ -31,7 +31,7 @@ export default function AdminLoginPage() {
 
     setLoading(true);
     try {
-      const response = await fetch(`${API_URL}/login`, {
+      const response = await fetch(getApiUrl('/auth/login'), {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, password, userType: "admin" })
@@ -47,7 +47,7 @@ export default function AdminLoginPage() {
         localStorage.setItem("isAdmin", "true");
 
         // Fetch and store user data after login
-        const userResponse = await fetch(`${API_URL.replace('/auth', '')}/user/${data.userId}`, {
+        const userResponse = await fetch(getApiUrl(`/auth/user/${data.userId}`), {
           method: "GET",
           headers: {
             "Content-Type": "application/json",

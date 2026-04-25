@@ -34,7 +34,7 @@ export default function Community() {
   const fetchPosts = async () => {
     try {
       const timestamp = new Date().getTime();
-      const res = await fetch(`${API_URL}?t=${timestamp}`, {
+      const res = await fetch(getApiUrl('/community') + '?t=' + timestamp, {
         cache: 'no-store'
       });
       const data = await res.json();
@@ -65,7 +65,7 @@ export default function Community() {
       formData.append('content', content);
       formData.append('image', imageFile);
 
-      const res = await fetch(API_URL, {
+      const res = await fetch(getApiUrl('/community'), {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('token') || ''}`
@@ -94,7 +94,7 @@ export default function Community() {
   const handleDelete = async (postId) => {
     if (!userId) return;
     try {
-      const res = await fetch(`${API_URL}/${postId}`, {
+      const res = await fetch(getApiUrl(`/community/${postId}`), {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
@@ -118,7 +118,7 @@ export default function Community() {
       return;
     }
     try {
-      const res = await fetch(`${API_URL}/${postId}/like`, {
+      const res = await fetch(getApiUrl(`/community/${postId}/like`), {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -144,7 +144,7 @@ export default function Community() {
       return;
     }
     try {
-      const res = await fetch(`${API_URL}/${postId}/comment`, {
+      const res = await fetch(getApiUrl(`/community/${postId}/comment`), {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

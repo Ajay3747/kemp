@@ -64,7 +64,7 @@ export default function Profile() {
 
         // Fetch complete user data including ID card
         try {
-          const userResponse = await fetch(`${API_URL}/auth/user/${userId}`, {
+          const userResponse = await fetch(getApiUrl(`/auth/user/${userId}`), {
             method: 'GET',
             headers: {
               'Content-Type': 'application/json',
@@ -88,7 +88,7 @@ export default function Profile() {
 
         // Fetch user profile from backend
         try {
-          const profileResponse = await fetch(`${API_URL}/products/profile/${userId}`, {
+          const profileResponse = await fetch(getApiUrl(`/products/profile/${userId}`), {
             method: 'GET',
             headers: {
               'Content-Type': 'application/json',
@@ -110,7 +110,7 @@ export default function Profile() {
         // Fetch user's listings
         // Fetch user's listings
         try {
-          const listingsResponse = await fetch(`${API_URL}/products/seller/${userId}`, {
+          const listingsResponse = await fetch(getApiUrl(`/products/seller/${userId}`), {
             method: 'GET',
             headers: {
               'Content-Type': 'application/json',
@@ -128,7 +128,7 @@ export default function Profile() {
 
         // Fetch unread notifications count
         try {
-          const notifResponse = await fetch(`${API_URL}/notifications/unread/${userId}`, {
+          const notifResponse = await fetch(getApiUrl(`/notifications/unread/${userId}`), {
             method: 'GET',
             headers: {
               'Content-Type': 'application/json',
@@ -183,7 +183,7 @@ export default function Profile() {
       return;
     }
     try {
-      const response = await fetch(`${API_URL}/products/${productId}`, {
+      const response = await fetch(getApiUrl(`/products/${productId}`), {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',

@@ -31,9 +31,9 @@ export default function AdminUsersManagement() {
       setLoading(true);
       setError("");
       
-      console.log("Starting fetch from:", `${API_URL}/admin/users`);
+      console.log("Starting fetch from:", getApiUrl('/auth/admin/users'));
       
-      const response = await fetch(`${API_URL}/admin/users`, {
+      const response = await fetch(getApiUrl('/auth/admin/users'), {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -66,7 +66,7 @@ export default function AdminUsersManagement() {
     }
 
     try {
-      const response = await fetch(`${API_URL}/admin/user/${userId}`, {
+      const response = await fetch(getApiUrl(`/auth/admin/user/${userId}`), {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
