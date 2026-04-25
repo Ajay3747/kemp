@@ -4,8 +4,7 @@ import UserProfile from '../components/UserProfile';
 import ItemCard from '../components/ItemCard';
 import SaleRecordModal from '../components/SaleRecordModal';
 import { ShoppingBag, Star, LayoutDashboard, LogOut, Edit2, TrendingUp, Bell, User, Mail, Phone, Calendar, Hash, Building2, Award } from 'lucide-react';
-
-const API_URL = "http://localhost:5000/api";
+import { getApiUrl } from '../utils/api';
 
 export default function Profile() {
   const navigate = useNavigate();

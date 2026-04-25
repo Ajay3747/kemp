@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Bell, Mail, Phone, User, Package, Calendar, Check, Trash2, ShoppingBag, X } from 'lucide-react';
-
-const API_URL = "http://localhost:5000/api";
+import { getApiUrl } from '../utils/api';
 
 export default function Notifications() {
   const navigate = useNavigate();

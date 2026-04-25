@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Camera, Image, Tag, DollarSign, Text, FileText, Compass, Send } from 'lucide-react';
-
-const API_URL = "http://localhost:5000/api/products";
+import { getApiUrl } from '../utils/api';
 
 const categories = [
   'Books', 'Electronics', 'Dorm Essentials', 'Furniture', 'Apparel', 'Services', 'Other'

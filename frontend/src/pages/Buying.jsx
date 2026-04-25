@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ProductDetailModal from "../components/ProductDetailModal";
-
-const API_URL = "http://localhost:5000/api/products";
+import { getApiUrl } from "../utils/api";
 
 const getImageUrl = (url) => {
   if (!url) return "https://via.placeholder.com/300x200?text=No+Image";

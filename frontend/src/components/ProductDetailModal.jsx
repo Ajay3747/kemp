@@ -39,7 +39,7 @@ export default function ProductDetailModal({ product, onClose }) {
 
     try {
       // Send notification to seller
-      const notificationResponse = await fetch('http://localhost:5000/api/notifications/purchase', {
+      const notificationResponse = await fetch(getApiUrl('/notifications/purchase'), {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Lock, Shield, Eye, EyeOff, CheckCircle, AlertCircle } from "lucide-react";
-
-const API_URL = "http://localhost:5000/api/auth";
+import { getApiUrl } from "../utils/api";
 const ADMIN_USERNAME = "test";
 const ADMIN_PASSWORD = "test";
 

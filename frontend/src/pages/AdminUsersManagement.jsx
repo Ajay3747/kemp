@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { X } from "lucide-react";
-
-const API_URL = "http://localhost:5000/api/auth";
+import { getApiUrl } from "../utils/api";
 
 export default function AdminUsersManagement() {
   const navigate = useNavigate();

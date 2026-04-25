@@ -3,8 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Mail, Lock, User, Phone, BookOpen, FileUp, CheckCircle, AlertCircle, Eye, EyeOff } from "lucide-react";
 import ChromaKeyVideo from "../components/ChromaKeyVideo";
 import PageTransition from "../components/PageTransition";
-
-const API_URL = "http://localhost:5000/api/auth";
+import { getApiUrl } from "../utils/api";
 const USER_USERNAME = "test";
 const USER_PASSWORD = "test";
 
@@ -157,7 +156,7 @@ export default function LoginPage() {
           phone,
           collegeEmail,
           idCard: idCard?.name || "ID Card uploaded",
-          idCardUrl: `http://localhost:5000/api/auth/idcard/${data.userId}`,
+          idCardUrl: getApiUrl(`/auth/idcard/${data.userId}`),
           createdAt: new Date().toISOString()
         };
         localStorage.setItem("userData", JSON.stringify(signupData));

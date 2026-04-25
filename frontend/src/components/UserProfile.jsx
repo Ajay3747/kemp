@@ -34,7 +34,7 @@ export default function UserProfile() {
           rollNumber: parsedData.rollNo || "N/A",
           joined: new Date(parsedData.createdAt).toLocaleDateString() || new Date().toLocaleDateString(),
           ratings: 0,
-          idCardUrl: userId ? `http://localhost:5000/api/auth/idcard/${userId}` : "#",
+          idCardUrl: userId ? getApiUrl(`/auth/idcard/${userId}`) : "#",
         }));
       } catch (err) {
         console.error('Error parsing user data:', err);

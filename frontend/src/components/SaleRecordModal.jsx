@@ -45,7 +45,7 @@ export default function SaleRecordModal({ isOpen, onClose, product, sellerData }
 
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:5000/api/sales/sales-records', {
+      const response = await fetch(getApiUrl('/sales/sales-records'), {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -72,7 +72,7 @@ export default function SaleRecordModal({ isOpen, onClose, product, sellerData }
         // Delete the product after successfully recording the sale
         if (product?._id) {
           try {
-            const deleteResponse = await fetch(`http://localhost:5000/api/products/${product._id}`, {
+            const deleteResponse = await fetch(getApiUrl(`/products/${product._id}`), {
               method: 'DELETE',
               headers: {
                 'Content-Type': 'application/json',

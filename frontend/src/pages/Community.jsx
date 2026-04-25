@@ -2,8 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Post from '../components/Post';
 import Core from '../components/core';
 import { Image, Search, X } from 'lucide-react';
-
-const API_URL = 'http://localhost:5000/api/community';
+import { getApiUrl } from '../utils/api';
 
 export default function Community() {
   const [posts, setPosts] = useState([]);
