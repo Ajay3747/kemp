@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import { ShoppingBag, Upload, Users, Sparkles, ArrowRight, Star, TrendingUp, Zap } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import InteractiveSpinner from '../components/InteractiveSpinner';
+import { getApiUrl } from '../utils/api';
 import gsap from 'gsap';
 
 export default function Home() {
@@ -73,7 +74,7 @@ export default function Home() {
     // Fetch real-time stats
     const fetchStats = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/auth/stats');
+        const response = await fetch(getApiUrl('/auth/stats'));
         if (response.ok) {
           const data = await response.json();
           setStats({
